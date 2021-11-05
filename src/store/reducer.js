@@ -1,4 +1,5 @@
-import {combineReducers, compose} from 'redux'
+import { compose} from 'redux'
+import {combineReducers} from "redux-immutable"
 
 import {reducer as recommendReducer} from '../pages/discover/c-pages/recommend/store'
 

@@ -1,14 +1,16 @@
 import React,{memo, useEffect} from 'react'
 
-import {connect,useDispatch,useSelector} from 'react-redux'
+import {connect,useDispatch,useSelector,shallowEqual} from 'react-redux'
 
 import { getTopBannerAction } from './store/actionCreators'
 
 function WYYRecommend(props) {
     //Allows you to extract data from the Redux store state
     const {topBanners}=useSelector(state=>({
-        topBanners:state.recommend.topBanners
-    }))
+        // topBanners:state.recommend.topBanners
+        // topBanners:state.get("recommend").get("topBanners")
+        topBanners:state.getIn(["recommend","topBanners"])
+    }),shallowEqual)
     //组件和redux关联 获取数据进行操作;
      const dispatch =useDispatch()
      //You may use it to dispatch actions as needed.
