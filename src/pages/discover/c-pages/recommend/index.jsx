@@ -1,43 +1,31 @@
-import React,{memo, useEffect} from 'react'
+import React,{memo} from 'react'
 
-import {connect,useDispatch,useSelector,shallowEqual} from 'react-redux'
-
-import { getTopBannerAction } from './store/actionCreators'
+import HYTopBanner from './c-cpns/top-banner'
+import {RecommendWrapper} from './style'
 
 function WYYRecommend(props) {
-    //Allows you to extract data from the Redux store state
-    const {topBanners}=useSelector(state=>({
-        // topBanners:state.recommend.topBanners
-        // topBanners:state.get("recommend").get("topBanners")
-        topBanners:state.getIn(["recommend","topBanners"])
-    }),shallowEqual)
-    //组件和redux关联 获取数据进行操作;
-     const dispatch =useDispatch()
-     //You may use it to dispatch actions as needed.
-
-    // const {getBanners,topBanners}=props
-     //发送网络请求
-     //改变的时候不会影响组件重新渲染
-    useEffect(()=>{
-       dispatch(getTopBannerAction())
-    },[dispatch])
+    
 
     return (
-        <div>
-            WYYRecommend:{topBanners.length}
-        </div>
+        <RecommendWrapper>
+      {/* 轮播图 */}
+      <HYTopBanner />
+      {/* 主体内容 */}
+        {/* <Content className="w980"> */}
+          {/* 主体推荐页左侧 */}
+          {/* <RecommendLeft> */}
+            {/* 热门推荐 */}
+            {/* <HotRecommend /> */}
+           
+          {/* </RecommendLeft> */}
+          {/* 主体推荐页右侧 */}
+          {/* <RecommendRight>
+           
+          </RecommendRight> */}
+        {/* </Content> */}
+    </RecommendWrapper>
     )
 }
 
-// const mapStateToProps=state=>({
-//     topBanners:state.recommend.topBanners
-// })
-// const mapDispatchTop=dispatch=>({
-//     getBanners:()=>{
-//         dispatch(getTopBannerAction())
-//     }
-// })
-
-// export default connect(mapStateToProps,mapDispatchTop)(memo(WYYRecommend))
 
 export default memo(WYYRecommend)

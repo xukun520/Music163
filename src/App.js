@@ -18,7 +18,7 @@ export default memo(function App() {
       <HashRouter>
         <JMAppHeader />
         {renderRoutes(routes)}
-        <JMAppFooter />
+        {/* <JMAppFooter /> */}
       </HashRouter>
       </Provider>
     </div>

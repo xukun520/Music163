@@ -13,12 +13,6 @@ export default memo(
         const {route}=props
 
         // 获取轮播图数据
-        useEffect(()=>{
-            request({
-                url:'/banner'
-            }).then(res=>console.log(res))
-            
-        },[])
         // console.log(route);
         return (
             <HeaderCategory>
